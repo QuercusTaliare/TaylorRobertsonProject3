@@ -1,0 +1,39 @@
+.landing {
+  height: 100vh;
+  background: lightgreen;
+}
+
+.questions {
+  height: 100vh;
+  background: lightblue;
+}
+
+.questionForm {
+  height: 90%;
+  display: flex;
+
+}
+
+label {
+  flex: 1 1 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+input[type="radio"] {
+  position: fixed;
+}
+
+input[type="radio"]:checked ~ span {
+  color: red;
+}
+
+.btnNav {
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
