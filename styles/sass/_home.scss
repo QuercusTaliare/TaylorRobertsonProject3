@@ -35,6 +35,25 @@ input[type="radio"]:checked ~ span {
   color: red;
 }
 
+.treeSlide {
+  height: 90%;
+  display: none;
+}
+
+.treeSlideActive {
+  display: flex;
+}
+
+.treeSlide.treeSlideActive h2,
+.treeSlide.treeSlideActive p {
+  flex: 1 1 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .btnNav {
   height: 10%;
   display: flex;

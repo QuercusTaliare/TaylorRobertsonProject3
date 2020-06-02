@@ -312,6 +312,34 @@ input[type="radio"]:checked ~ span {
   color: red;
 }
 
+.treeSlide {
+  height: 90%;
+  display: none;
+}
+
+.treeSlideActive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.treeSlide.treeSlideActive h2,
+.treeSlide.treeSlideActive p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
 .btnNav {
   height: 10%;
   display: -webkit-box;
