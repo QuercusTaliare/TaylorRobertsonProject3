@@ -6,33 +6,49 @@ const app = {};
 
 // VARIABLES
 
-app.$nextBtn = $('.nextBtn'); 
+// app.$form = $('.questionForm');
+app.$prevBtn = $('.previousBtn');
+app.$nextBtn = $('.nextBtn');
 
-app.questions = {
-  needleShaped: {
-    option: "Are the leaves needle-shaped?",
-    next: {
-      singleNeedles: {
+app.$questionFormOne = $('.questionFormOne');
+app.$questionFormTwoA = $('.questionFormTwoA'); 
+app.$questionFormThreeA = $('.questionFormThreeA');
 
-      },
-      groupedNeedles: {
-
-      },
-      clusteredNeedles: {
-
-      }
-    }
-  },
-  rounded: {
-    option: "Are the leaves rounded?",
-
-  }
-}
+app.userAnswers = [];
 
 // FUNCTIONS 
 
 app.handleNext = function() {
-  console.log("working");
+
+  const $form = $('.questionForm');
+  
+  const selectedItem = $form.find("input[type='radio']:checked");
+
+  console.log(selectedItem);
+
+  // const choice = selectedItem.classList[0];
+
+  // console.log(choice);
+
+  // if (choice === "needles") {
+  //   app.$questionFormOne.toggleClass('questionFormActive');
+  //   app.$questionFormTwoA.toggleClass('questionFormActive');
+  // } else if (choice === "rounded") {
+
+  // } else if (choice === "single") {
+  //   app.$questionFormTwoA.toggleClass('questionFormActive');
+  //   app.$questionFormThreeA.toggleClass('questionFormActive');
+  // }
+
+
+  
+  
+  // app.$form.html(`
+  //   <label for="optionOne">
+  //     <input type="radio" id="optionOne" class="optionOne" name="questionOne">
+  //     <span>Are the leaves shaped like needles?</span>
+  //   </label>
+  // `);
 }
 
 

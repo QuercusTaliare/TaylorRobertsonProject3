@@ -15,23 +15,58 @@
   </section>
 
   <section id="questions" class="questions">
-    <form class="questionForm">
 
-      <label for="optionOne">
-        <input type="radio" id="optionOne" class="optionOne" name="questionOne">
+    <!-- Needles or Rounded  -->
+    <form class="questionForm questionFormOne questionFormActive">
+
+      <label for="needles">
+        <input type="radio" id="needles" class="needles" name="levelOne">
         <span>Are the leaves shaped like needles?</span>
       </label>
-      <label for="optionTwo">
-        <input type="radio" id="optionTwo" class="optionTwo" name="questionOne">
+      <label for="rounded">
+        <input type="radio" id="rounded" class="rounded" name="levelOne">
         <span>Are the leaves rounded?</span>
       </label>
       
     </form>
+
+    <!-- Single, Groups, or Clustered  -->
+    <form class="questionForm questionFormTwoA">
+    
+      <label for="single">
+        <input type="radio" id="single" class="single" name="levelTwoA">
+        <span>Are the needles single?</span>
+      </label>
+      <label for="grouped">
+        <input type="radio" id="grouped" class="grouped" name="levelTwoA">
+        <span>Are the needles in groups of 2, 3, or 5?</span>
+      </label>
+      <label for="clustered">
+        <input type="radio" id="clustered" class="clustered" name="levelTwoA">
+        <span>Are the needles clustered?</span>
+      </label>
+    
+    </form>
+
+    <!-- Flat or Angled?  -->
+    <form class="questionForm questionFormThreeA">
+    
+      <label for="flat">
+        <input type="radio" id="flat" class="flat" name="levelThreeA">
+        <span>Are the needles flat?</span>
+      </label>
+      <label for="angled">
+        <input type="radio" id="angled" class="angled" name="levelThreeA">
+        <span>Are the needles angled?</span>
+      </label>
+    
+    </form>
+
+    <!-- Button Navigation  -->
     <nav class="btnNav">
       <button type="submit" class="previousBtn">Previous</button>
       <button type="submit" class="nextBtn">Next</button>
     </nav>
-    
 
   </section>
 

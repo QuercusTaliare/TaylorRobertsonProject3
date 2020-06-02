@@ -279,6 +279,10 @@ a {
 
 .questionForm {
   height: 90%;
+  display: none;
+}
+
+.questionFormActive {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

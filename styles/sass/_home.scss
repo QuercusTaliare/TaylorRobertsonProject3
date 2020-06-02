@@ -10,8 +10,12 @@
 
 .questionForm {
   height: 90%;
-  display: flex;
+  display: none;
 
+}
+
+.questionFormActive {
+  display: flex;
 }
 
 label {
