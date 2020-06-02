@@ -47,10 +47,17 @@ app.trees = {
 
 // FUNCTIONS 
 
+// Previous Button Function 
+app.prevBtn = function() {
+  const currentForm = app.$questions.find('.questionFormActive')[0];
+  console.log(currentForm);
+}
+
 // Next Button Function
 app.handleNext = function () {
-
-
+  
+  // NOTE: Apply styling so the Next button doesn't look interactive
+  app.$nextBtn.off('click', app.handleNext);
 
   if (choice === "needles") {
     app.$questionFormOne.toggleClass('questionFormActive');
@@ -68,7 +75,6 @@ app.handleNext = function () {
     app.$questionFormTwoA.toggleClass('questionFormActive');
     app.$questionNeedlesGrouped.toggleClass('questionFormActive');
   } else if (choice === "rounded") {
-    console.log("yes");
     app.$questionFormOne.toggleClass('questionFormActive');
     app.$questionRounded.toggleClass('questionFormActive');
   } else if (currentForm.classList.contains('questionFormTree')) {
@@ -88,7 +94,6 @@ app.handleNext = function () {
 app.selectQuestion = function(e) {
   // When a choice has been selected, this will put an event listener on the next button
   // NOTE: I should change the styling so it officially looks interactive
-  app.$nextBtn.off('click', app.handleNext);
   app.$nextBtn.on('click', app.handleNext);
 
   choice = e.target.className;
@@ -102,6 +107,7 @@ app.init = function () {
 
   // SELECTOR VARIABLES
 
+  app.$questions = $('.questions');
   app.$form = $('.questionForm');
   app.$prevBtn = $('.previousBtn');
   app.$nextBtn = $('.nextBtn');
@@ -121,6 +127,7 @@ app.init = function () {
   // EVENT LISTENERS
 
   app.$form.on('click', 'input[type="radio"]', app.selectQuestion);
+  app.$prevBtn.on('click', app.prevBtn);
 
 };
 
