@@ -4,7 +4,7 @@ const app = {};
 // VARIABLES
 
 let choice = "";
-let currentForm = "";
+let currentPage = "";
 
 app.trees = {
   balsalmFir: {
@@ -47,88 +47,109 @@ app.trees = {
 
 // FUNCTIONS 
 
-// Previous Button Function 
+// PREVIOUS BUTTON FUNCTION 
 app.prevBtn = function() {
   // app.$nextBtn.on('click', app.handleNext);
 
   // Finds the current form displaying, and gets the first input
-  const currentForm = app.$questions.find('.questionFormActive')[0];
-  const inputName = currentForm[0].name;
+  const currentPage = app.$questions.find('.active');
+  // console.log(currentPage);
+  // const inputName = currentPage[0].name;
+  // console.log(inputName);
 
-  const currentSlide = app.$questions.find('.treeSlideActive')[0];
+  // console.log(className);
 
-  console.log(currentForm);
-  console.log(currentSlide);
+  // const currentSlide = app.$questions.find('.active')[0];
 
-  if (inputName === "levelOne") {
+
+  if (currentPage.hasClass("questionFormOne")) {
     console.log("Nope");
-  } else if (inputName === "levelTwoA") {
-    currentForm.classList.toggle('questionFormActive');
-    app.$questionFormOne.toggleClass('questionFormActive');
+  } else if (currentPage.hasClass("questionFormTwoA") || currentPage.hasClass("questionNeedlesClustered")) {
+    currentPage.toggleClass('active');
+    app.$questionFormOne.toggleClass('active');
     app.$questionFormOne[0].reset();
-    console.log(app.$questionFormOne);
-  } else if (inputName === "levelThreeA") {
-    currentForm.classList.toggle('questionFormActive');
-    app.$questionFormTwoA.toggleClass('questionFormActive');
+  } else if (currentPage.hasClass("questionFormThreeA")) {
+    currentPage.toggleClass('active');
+    app.$questionFormTwoA.toggleClass('active');
     app.$questionFormTwoA[0].reset();
-  } else if (inputName === "needlesSingleFlat" || inputName === "needlesSingleAngled" || inputName === "needlesGrouped") {
-    currentForm.classList.toggle('questionFormActive');
-    app.$questionFormTwoA.toggleClass('questionFormActive');
+  } else if (currentPage.hasClass("questionNeedlesSingleFlat") || currentPage.hasClass("questionNeedlesSingleAngled") || currentPage.hasClass("questionNeedlesGrouped")) {
+    currentPage.toggleClass('active');
+    app.$questionFormTwoA.toggleClass('active');
     app.$questionFormTwoA[0].reset();
-  } 
-}
+  } else if (currentPage.hasClass("treeSlide")) {
+    const currentTree = currentPage.find('h2').text();
+    
+    if (currentTree === "Eastern Red Cedar") {
+      console.log(app.$questionRounded);
+      currentPage.toggleClass('active');
+      app.$questionRounded.toggleClass('active');
+      app.$questionRounded[0].reset();
+    }
+  }
+} // Previous button function ENDS
 
-// Next Button Function
+// NEXT BUTTON FUNCTION
 app.handleNext = function () {
   
+  // This event listener will be re-added after another selection has been made in the selectQuestion method.
   // NOTE: Apply styling so the Next button doesn't look interactive
   app.$nextBtn.off('click', app.handleNext);
 
   if (choice === "needles") {
-    app.$questionFormOne.toggleClass('questionFormActive');
-    app.$questionFormTwoA.toggleClass('questionFormActive');
+    app.$questionFormOne.toggleClass('active');
+    app.$questionFormTwoA.toggleClass('active');
   } else if (choice === "single") {
-    app.$questionFormTwoA.toggleClass('questionFormActive');
-    app.$questionFormThreeA.toggleClass('questionFormActive');
+    app.$questionFormTwoA.toggleClass('active');
+    app.$questionFormThreeA.toggleClass('active');
   } else if (choice === "flat") {
-    app.$questionFormThreeA.toggleClass('questionFormActive');
-    app.$questionNeedlesSingleFlat.toggleClass('questionFormActive');
+    app.$questionFormThreeA.toggleClass('active');
+    app.$questionNeedlesSingleFlat.toggleClass('active');
   } else if (choice === "angled") {
-    app.$questionFormThreeA.toggleClass('questionFormActive');
-    app.$questionNeedlesSingleAngled.toggleClass('questionFormActive');
+    app.$questionFormThreeA.toggleClass('active');
+    app.$questionNeedlesSingleAngled.toggleClass('active');
   } else if (choice === "grouped") {
-    app.$questionFormTwoA.toggleClass('questionFormActive');
-    app.$questionNeedlesGrouped.toggleClass('questionFormActive');
+    app.$questionFormTwoA.toggleClass('active');
+    app.$questionNeedlesGrouped.toggleClass('active');
   } else if (choice === "clustered") {
-    app.$questionFormTwoA.toggleClass('questionFormActive');
-    app.$questionNeedlesClustered.toggleClass('questionFormActive');
+    app.$questionFormTwoA.toggleClass('active');
+    app.$questionNeedlesClustered.toggleClass('active');
   } else if (choice === "rounded") {
-    app.$questionFormOne.toggleClass('questionFormActive');
-    app.$questionRounded.toggleClass('questionFormActive');
-  } else if (currentForm.classList.contains('questionFormTree')) {
-    currentForm.remove('questionFormActive');
-    app.$treeSlide.toggleClass('treeSlideActive');
+    app.$questionFormOne.toggleClass('active');
+    app.$questionRounded.toggleClass('active');
+  } else if (currentPage.hasClass('questionFormTree')) {
+
+
+    currentPage.toggleClass('active');
+    app.$treeSlide.toggleClass('active');
 
     const treeName = app.trees[choice].name;
     const treeDesc = app.trees[choice].desc;
+
+    // console.log(treeName);
 
     app.$treeSlide.find('h2')[0].innerHTML = treeName;
     app.$treeSlide.find('p')[0].innerHTML = treeDesc;
   }
 
-}
+} // Next button function ENDS
 
-// Radio Button Select Function
+// RADIO BUTTON SELECT FUNCTION
 app.selectQuestion = function(e) {
   // When a choice has been selected, this will put an event listener on the next button
   // NOTE: I should change the styling so it officially looks interactive
   app.$nextBtn.on('click', app.handleNext);
 
-  choice = e.target.className;
-  currentForm = e.target.form;
+  // Vanilla JS
+  // choice = e.target.className;
 
-}
+  choice = $(this).attr('class');
+  currentPage = app.$questions.find('.active');
+  // currentPage = e.target.form;
 
+
+} // Radio button function ENDS
+
+// INIT FUNCTION -------------------------------------
 app.init = function () {
 
   // SELECTOR VARIABLES

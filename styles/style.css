@@ -282,12 +282,6 @@ a {
   display: none;
 }
 
-.questionFormActive {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 label {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -317,14 +311,14 @@ input[type="radio"]:checked ~ span {
   display: none;
 }
 
-.treeSlideActive {
+.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.treeSlide.treeSlideActive h2,
-.treeSlide.treeSlideActive p {
+.treeSlide.active h2,
+.treeSlide.active p {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;

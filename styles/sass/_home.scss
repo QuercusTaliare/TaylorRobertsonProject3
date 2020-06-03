@@ -14,9 +14,11 @@
 
 }
 
-.questionFormActive {
-  display: flex;
-}
+// .questionFormActive {
+//   display: flex;
+// }
+
+
 
 label {
   flex: 1 1 auto;
@@ -40,12 +42,16 @@ input[type="radio"]:checked ~ span {
   display: none;
 }
 
-.treeSlideActive {
+// .treeSlideActive {
+//   display: flex;
+// }
+
+.active {
   display: flex;
 }
 
-.treeSlide.treeSlideActive h2,
-.treeSlide.treeSlideActive p {
+.treeSlide.active h2,
+.treeSlide.active p {
   flex: 1 1 auto;
 
   display: flex;
