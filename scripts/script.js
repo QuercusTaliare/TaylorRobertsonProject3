@@ -15,6 +15,14 @@ app.trees = {
     name: "Hemlock",
     desc: "hemlock paragraph"
   }, 
+  whiteSpruce: {
+    name: "White Spruce",
+    desc: "white spruce paragraph"
+  },
+  blackSpruce: {
+    name: "Black Spruce",
+    desc: "black spruce paragraph"
+  },
   whitePine: {
     name: "White Pine",
     desc: "white pine"
@@ -53,34 +61,43 @@ app.prevBtn = function() {
 
   // Finds the current form displaying, and gets the first input
   const currentPage = app.$questions.find('.active');
-  // console.log(currentPage);
-  // const inputName = currentPage[0].name;
-  // console.log(inputName);
-
-  // console.log(className);
-
-  // const currentSlide = app.$questions.find('.active')[0];
-
-
+  
   if (currentPage.hasClass("questionFormOne")) {
     console.log("Nope");
-  } else if (currentPage.hasClass("questionFormTwoA") || currentPage.hasClass("questionNeedlesClustered")) {
+  } else if (currentPage.hasClass("questionFormTwoA") || currentPage.hasClass("questionRounded")) {
     currentPage.toggleClass('active');
     app.$questionFormOne.toggleClass('active');
     app.$questionFormOne[0].reset();
-  } else if (currentPage.hasClass("questionFormThreeA")) {
+  } else if (currentPage.hasClass("questionFormThreeA") || currentPage.hasClass("questionNeedlesGrouped") || currentPage.hasClass("questionNeedlesClustered")) {
     currentPage.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormTwoA[0].reset();
-  } else if (currentPage.hasClass("questionNeedlesSingleFlat") || currentPage.hasClass("questionNeedlesSingleAngled") || currentPage.hasClass("questionNeedlesGrouped")) {
+  } else if (currentPage.hasClass("questionNeedlesSingleFlat") || currentPage.hasClass("questionNeedlesSingleAngled")) {
     currentPage.toggleClass('active');
-    app.$questionFormTwoA.toggleClass('active');
-    app.$questionFormTwoA[0].reset();
-  } else if (currentPage.hasClass("treeSlide")) {
+    app.$questionFormThreeA.toggleClass('active');
+    app.$questionFormThreeA[0].reset();
+  } 
+  // IF ON TREE PAGE
+  else if (currentPage.hasClass("treeSlide")) {
     const currentTree = currentPage.find('h2').text();
     
-    if (currentTree === "Eastern Red Cedar") {
-      console.log(app.$questionRounded);
+    if (currentTree === "Balsalm Fir" || currentTree === "Hemlock") {
+      currentPage.toggleClass('active');
+      app.$questionNeedlesSingleFlat.toggleClass('active');
+      app.$questionNeedlesSingleFlat[0].reset();
+    } else if (currentTree === "White Spruce"  || currentTree === "Black Spruce") {
+      currentPage.toggleClass('active');
+      app.$questionNeedlesSingleAngled.toggleClass('active');
+      app.$questionNeedlesSingleAngled[0].reset();
+    } else if (currentTree.includes("Pine")) {
+      currentPage.toggleClass('active');
+      app.$questionNeedlesGrouped.toggleClass('active');
+      app.$questionNeedlesGrouped[0].reset();
+    } else if (currentTree === "Larch") {
+      currentPage.toggleClass('active');
+      app.$questionNeedlesClustered.toggleClass('active');
+      app.$questionNeedlesClustered[0].reset();
+    } else if (currentTree === "Eastern Red Cedar" || currentTree === "Eastern White Cedar") {
       currentPage.toggleClass('active');
       app.$questionRounded.toggleClass('active');
       app.$questionRounded[0].reset();
@@ -90,10 +107,6 @@ app.prevBtn = function() {
 
 // NEXT BUTTON FUNCTION
 app.handleNext = function () {
-  
-  // This event listener will be re-added after another selection has been made in the selectQuestion method.
-  // NOTE: Apply styling so the Next button doesn't look interactive
-  app.$nextBtn.off('click', app.handleNext);
 
   if (choice === "needles") {
     app.$questionFormOne.toggleClass('active');
@@ -130,6 +143,10 @@ app.handleNext = function () {
     app.$treeSlide.find('h2')[0].innerHTML = treeName;
     app.$treeSlide.find('p')[0].innerHTML = treeDesc;
   }
+
+  // This event listener will be re-added after another selection has been made in the selectQuestion method.
+  // NOTE: Apply styling so the Next button doesn't look interactive
+  app.$nextBtn.off('click', app.handleNext);
 
 } // Next button function ENDS
 
