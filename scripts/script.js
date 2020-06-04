@@ -9,47 +9,91 @@ let currentPage = "";
 app.trees = {
   balsalmFir: {
     name: "Balsalm Fir",
-    desc: "balsalm paragraph"
+    desc: "balsalm paragraph",
+    image: {
+      path: "../assets/balsalmFir-RobRoutledge.jpg",
+      photographer: "Rob Routledge, Sault College, Bugwood.org"
+    }
   },
   hemlock: {
     name: "Hemlock",
-    desc: "hemlock paragraph"
+    desc: "hemlock paragraph",
+    image: {
+      path: "../assets/hemlock-RobRoutledge.jpg",
+      photographer: "Rob Routledge, Sault College, Bugwood.org"
+    }
   }, 
   whiteSpruce: {
     name: "White Spruce",
-    desc: "white spruce paragraph"
+    desc: "white spruce paragraph",
+    image: {
+      path: "../assets/whiteSpruce-paulWray.jpg",
+      photographer: "Paul Wray, Iowa State University, Bugwood.org"
+    }
   },
   blackSpruce: {
     name: "Black Spruce",
-    desc: "black spruce paragraph"
+    desc: "black spruce paragraph",
+    image: {
+      path: "../assets/blackSpruce-RobRoutledge.jpg",
+      photographer: "Rob Routledge, Sault College, Bugwood.org"
+    }
   },
   whitePine: {
     name: "White Pine",
-    desc: "white pine"
+    desc: "white pine",
+    image: {
+      path: "../assets/whitePine - Richard Webb.jpg",
+      photographer: "Richard Webb, Bugwood.org"
+    }
   },
   redPine: {
     name: "Red Pine",
-    desc: "red pine"
+    desc: "red pine",
+    image: {
+      path: "../assets/redPine-JosephObrien.jpg",
+      photographer: "Joseph OBrien, USDA Forest Service, Bugwood.org"
+    }
   }, 
   jackPine: {
     name: "Jack Pine",
-    desc: "jack pine"
+    desc: "jack pine",
+    image: {
+      path: "../assets/jackPine-RobRoutledge.jpg",
+      photographer: "Rob Routledge, Sault College, Bugwood.org"
+    }
   },
   scotchPine: {
     name: "Scotch Pine",
-    desc: "scotch pine"
+    desc: "scotch pine",
+    image: {
+      path: "../assets/scotsPine-tDavisSydnor.jpg",
+      photographer: "T. Davis Sydnor, The Ohio State University, Bugwood.org"
+    }
   },
   larch: {
     name: "Larch",
-    desc: "larch"
+    desc: "larch",
+    image: {
+      path: "../assets/larch-robRoutledge.jpg",
+      photographer: "Rob Routledge, Sault College, Bugwood.org"
+    }
   },
   easternWhiteCedar: {
     name: "Eastern White Cedar",
-    desc: "eastern white cedar"
+    desc: "eastern white cedar",
+    image: {
+      path: "../assets/easternWhiteCedar-ForestAndKimStarr.jpg",
+      photographer: "Forest and Kim Starr, Starr Environmental, Bugwood.org"
+    }
   },
   easternRedCedar: {
     name: "Eastern Red Cedar",
-    desc: "eastern red cedar"
+    desc: "eastern red cedar",
+    image: {
+      path: "../assets/easternRedCedar-ChrisEvans.jpg",
+      photographer: "Chris Evans, University of Illinois, Bugwood.org"
+    }
   }
 }
 
