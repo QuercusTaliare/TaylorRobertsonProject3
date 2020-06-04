@@ -63,11 +63,12 @@ app.prevBtn = function() {
   const currentPage = app.$questions.find('.active');
   
   if (currentPage.hasClass("questionFormOne")) {
-    console.log("Nope");
+    
   } else if (currentPage.hasClass("questionFormTwoA") || currentPage.hasClass("questionRounded")) {
     currentPage.toggleClass('active');
     app.$questionFormOne.toggleClass('active');
     app.$questionFormOne[0].reset();
+    app.$prevBtn.removeClass('activeBtn');
   } else if (currentPage.hasClass("questionFormThreeA") || currentPage.hasClass("questionNeedlesGrouped") || currentPage.hasClass("questionNeedlesClustered")) {
     currentPage.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
@@ -111,6 +112,7 @@ app.handleNext = function () {
   if (choice === "needles") {
     app.$questionFormOne.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
+    app.$prevBtn.addClass('activeBtn');
   } else if (choice === "single") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormThreeA.toggleClass('active');
@@ -129,6 +131,7 @@ app.handleNext = function () {
   } else if (choice === "rounded") {
     app.$questionFormOne.toggleClass('active');
     app.$questionRounded.toggleClass('active');
+    app.$prevBtn.addClass('activeBtn');
   } else if (currentPage.hasClass('questionFormTree')) {
 
 
@@ -146,7 +149,10 @@ app.handleNext = function () {
 
   // This event listener will be re-added after another selection has been made in the selectQuestion method.
   // NOTE: Apply styling so the Next button doesn't look interactive
-  app.$nextBtn.off('click', app.handleNext);
+  // app.$nextBtn.off('click');
+  // $('button.nextBtn').css('pointer-events', 'none');
+  // app.$nextBtn.css('pointer-events', 'none');
+  app.$nextBtn.removeClass('activeBtn');
 
 } // Next button function ENDS
 
@@ -154,7 +160,10 @@ app.handleNext = function () {
 app.selectQuestion = function(e) {
   // When a choice has been selected, this will put an event listener on the next button
   // NOTE: I should change the styling so it officially looks interactive
-  app.$nextBtn.on('click', app.handleNext);
+  
+
+  // app.$nextBtn.css('pointer-events', 'auto');
+  app.$nextBtn.addClass('activeBtn');
 
   // Vanilla JS
   // choice = e.target.className;
@@ -193,6 +202,7 @@ app.init = function () {
 
   app.$form.on('click', 'input[type="radio"]', app.selectQuestion);
   app.$prevBtn.on('click', app.prevBtn);
+  app.$nextBtn.on('click', app.handleNext);
 
 };
 

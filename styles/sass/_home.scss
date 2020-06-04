@@ -66,3 +66,19 @@ input[type="radio"]:checked ~ span {
   justify-content: space-around;
   align-items: center;
 }
+
+.nextBtn {
+  pointer-events: none;
+}
+
+.nextBtn.activeBtn {
+  pointer-events: auto;
+}
+
+.previousBtn {
+  pointer-events: none;
+}
+
+.previousBtn.activeBtn {
+  pointer-events: auto;
+}
