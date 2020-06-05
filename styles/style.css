@@ -268,13 +268,6 @@ li {
 a {
   text-decoration: none;
   color: black;
-  text-transform: uppercase;
-  background: #95BF74;
-  padding: 10px 30px;
-  border-radius: 4px;
-  display: inline-block;
-  -webkit-box-shadow: 0 0 5px black;
-          box-shadow: 0 0 5px black;
 }
 
 button {
@@ -331,6 +324,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 7px;
   color: black;
+  text-align: center;
+  font-size: 4rem;
 }
 
 .landingText {
@@ -348,10 +343,27 @@ button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 250px;
+  text-align: center;
 }
 
 .landingText p {
   text-transform: uppercase;
+}
+
+a {
+  text-transform: uppercase;
+  background: #95BF74;
+  padding: 10px 30px;
+  border-radius: 4px;
+  display: inline-block;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+}
+
+a:hover {
+  -webkit-box-shadow: 0 0 5px #DADDD8;
+          box-shadow: 0 0 5px #DADDD8;
+  color: #DADDD8;
 }
 
 .questions {
@@ -378,12 +390,15 @@ label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 50%;
+  height: 100%;
 }
 
 label span {
-  background: lightblue;
+  border: solid 0 #95BF74;
   padding: 20px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 input[type="radio"] {
@@ -391,7 +406,14 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked ~ span {
-  color: red;
+  color: #ee5d09;
+}
+
+input[type="radio"]:hover ~ span,
+input[type="radio"]:focus ~ span {
+  border: solid 1px #95BF74;
+  -webkit-box-shadow: 0 0 5px #95BF74;
+          box-shadow: 0 0 5px #95BF74;
 }
 
 .treeSlide {
@@ -404,11 +426,14 @@ input[type="radio"]:checked ~ span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.treeSlide.active {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .treeSlide.active .treeSlideLeft,
@@ -457,8 +482,8 @@ input[type="radio"]:checked ~ span {
 }
 
 .treeSlide img {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -483,18 +508,38 @@ button {
   border-radius: 4px;
 }
 
+.previousBtn,
 .nextBtn {
   pointer-events: none;
+  color: rgba(0, 0, 0, 0.3);
+  background: rgba(149, 191, 116, 0.3);
 }
 
-.nextBtn.activeBtn {
-  pointer-events: auto;
-}
-
-.previousBtn {
-  pointer-events: none;
-}
-
+.nextBtn.activeBtn,
 .previousBtn.activeBtn {
   pointer-events: auto;
+  color: black;
+  background: #95BF74;
+}
+
+.nextBtn.activeBtn:hover,
+.nextBtn.activeBtn:focus,
+.previousBtn.activeBtn:hover,
+.previousBtn.activeBtn:focus {
+  color: #DADDD8;
+  -webkit-box-shadow: 0 0 7px #556F44;
+          box-shadow: 0 0 7px #556F44;
+}
+
+@media (max-width: 650px) {
+  .questionForm.active {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .treeSlide img {
+    height: 250px;
+    width: 250px;
+  }
 }

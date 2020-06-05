@@ -1,0 +1,11 @@
+@media (max-width: 650px) {
+
+  .questionForm.active {
+    flex-direction: column;
+  }
+
+  .treeSlide img {
+    height: 250px;
+    width: 250px;
+  }
+}
