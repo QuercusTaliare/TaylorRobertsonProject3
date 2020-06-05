@@ -246,11 +246,13 @@ html {
 
 body {
   font-size: 1.6rem;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+  font-family: 'Noto Serif', serif;
 }
 
 img {
@@ -265,16 +267,97 @@ li {
 a {
   text-decoration: none;
   color: black;
+  text-transform: uppercase;
+  background: #95BF74;
+  padding: 10px 30px;
+  border-radius: 4px;
+  display: inline-block;
+  -webkit-box-shadow: 0 0 5px black;
+          box-shadow: 0 0 5px black;
+}
+
+button {
+  font-family: 'Noto Serif', serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.landingWrapper {
+  height: 100%;
+}
+
+.questionsWrapper {
+  height: 90%;
+}
+
+.btnWrapper {
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .landing {
   height: 100vh;
-  background: lightgreen;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, #DADDD8), to(#659B5E));
+  background: linear-gradient(to bottom, #DADDD8 70%, #659B5E);
+}
+
+.landingContainer {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.landingContainer h1 {
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  text-shadow: 0 0 5px #556F44;
+  color: black;
+}
+
+.landingText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 250px;
+}
+
+.landingText p {
+  text-transform: uppercase;
 }
 
 .questions {
   height: 100vh;
-  background: lightblue;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(60%, #DADDD8), to(#659B5E));
+  background: linear-gradient(to top, #DADDD8 60%, #659B5E);
 }
 
 .questionForm {
@@ -317,8 +400,8 @@ input[type="radio"]:checked ~ span {
   display: flex;
 }
 
-.treeSlide.active h2,
-.treeSlide.active p {
+.treeSlide.active .treeSlideLeft,
+.treeSlide.active .treeSlideRight {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -334,8 +417,27 @@ input[type="radio"]:checked ~ span {
   height: 100%;
 }
 
+.treeSlideLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.treeImgContainer {
+  height: 300px;
+}
+
+.treeSlide img {
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
 .btnNav {
-  height: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,6 +446,14 @@ input[type="radio"]:checked ~ span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+}
+
+button {
+  background: #95BF74;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 4px;
 }
 
 .nextBtn {

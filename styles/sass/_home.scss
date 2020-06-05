@@ -1,11 +1,38 @@
 .landing {
   height: 100vh;
-  background: lightgreen;
+  background: linear-gradient(to bottom, $timberwolf 70%, $russianGreen);
+}
+
+.landingContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.landingContainer h1 {
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  text-shadow: 0 0 5px $fernGreen;
+  color: black;
+}
+
+.landingText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.landingText p {
+  text-transform: uppercase;
 }
 
 .questions {
   height: 100vh;
-  background: lightblue;
+  background: linear-gradient(to top, $timberwolf 60%, $russianGreen);
 }
 
 .questionForm {
@@ -35,6 +62,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ span {
   color: red;
+  // text-shadow: 0 0 5px black;
 }
 
 .treeSlide {
@@ -50,8 +78,8 @@ input[type="radio"]:checked ~ span {
   display: flex;
 }
 
-.treeSlide.active h2,
-.treeSlide.active p {
+.treeSlide.active .treeSlideLeft,
+.treeSlide.active .treeSlideRight {
   flex: 1 1 auto;
 
   display: flex;
@@ -60,15 +88,39 @@ input[type="radio"]:checked ~ span {
   height: 100%;
 }
 
+.treeSlideLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.treeImgContainer {
+  height: 300px;
+  // overflow: hidden;
+}
+
+.treeSlide img {
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
 .btnNav {
-  height: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+}
+
+button {
+  background: $pistachio;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 4px;
 }
 
 .nextBtn {
   pointer-events: none;
+  
 }
 
 .nextBtn.activeBtn {

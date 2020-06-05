@@ -10,148 +10,177 @@
   <script src="https://kit.fontawesome.com/1110345c41.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <section class="landing">
-    <h1>Tree</h1>
-    <p></p>
-    <a href="#questions">Begin</a>
+    <div class="wrapper landingWrapper">
+      <div class="landingContainer">
+
+        <h1>Conifer Detective</h1>
+        <div class="landingText">
+          <p>The Conifer-Tree Identification App</p>
+          <p>Answer the questions</p> 
+          <p>Discover the mysterious conifer Tree</p>
+        </div>
+        <a href="#questions">Begin</a>
+      
+      </div>
+    </div>
   </section>
 
   <section id="questions" class="questions">
+    
+    <div class="wrapper questionsWrapper">
 
-    <!-- Needles or Rounded  -->
-    <form class="questionForm questionFormOne active">
+    
+    
+      <!-- Needles or Rounded  -->
+      <form class="questionForm questionFormOne active">
 
-      <label for="needles">
-        <input type="radio" id="needles" class="needles" name="levelOne">
-        <span>Are the leaves shaped like needles?</span>
-      </label>
-      <label for="rounded">
-        <input type="radio" id="rounded" class="rounded" name="levelOne">
-        <span>Are the leaves rounded?</span>
-      </label>
+        <label for="needles">
+          <input type="radio" id="needles" class="needles" name="levelOne">
+          <span>Are the leaves shaped like needles?</span>
+        </label>
+        <label for="rounded">
+          <input type="radio" id="rounded" class="rounded" name="levelOne">
+          <span>Are the leaves rounded?</span>
+        </label>
+        
+      </form>
+    
+    
+      <!-- Single, Groups, or Clustered?  -->
+      <form class="questionForm questionFormTwoA">
       
-    </form>
+        <label for="single">
+          <input type="radio" id="single" class="single" name="levelTwoA">
+          <span>Are the needles single?</span>
+        </label>
+        <label for="grouped">
+          <input type="radio" id="grouped" class="grouped" name="levelTwoA">
+          <span>Are the needles in groups of 2, 3, or 5?</span>
+        </label>
+        <label for="clustered">
+          <input type="radio" id="clustered" class="clustered" name="levelTwoA">
+          <span>Are the needles clustered?</span>
+        </label>
+      
+      </form>
 
-    <!-- Single, Groups, or Clustered?  -->
-    <form class="questionForm questionFormTwoA">
-    
-      <label for="single">
-        <input type="radio" id="single" class="single" name="levelTwoA">
-        <span>Are the needles single?</span>
-      </label>
-      <label for="grouped">
-        <input type="radio" id="grouped" class="grouped" name="levelTwoA">
-        <span>Are the needles in groups of 2, 3, or 5?</span>
-      </label>
-      <label for="clustered">
-        <input type="radio" id="clustered" class="clustered" name="levelTwoA">
-        <span>Are the needles clustered?</span>
-      </label>
-    
-    </form>
+      <!-- Flat or Angled?  -->
+      <form class="questionForm questionFormThreeA">
+      
+        <label for="flat">
+          <input type="radio" id="flat" class="flat" name="levelThreeA">
+          <span>Are the needles flat?</span>
+        </label>
+        <label for="angled">
+          <input type="radio" id="angled" class="angled" name="levelThreeA">
+          <span>Are the needles angled?</span>
+        </label>
+      
+      </form>
 
-    <!-- Flat or Angled?  -->
-    <form class="questionForm questionFormThreeA">
-    
-      <label for="flat">
-        <input type="radio" id="flat" class="flat" name="levelThreeA">
-        <span>Are the needles flat?</span>
-      </label>
-      <label for="angled">
-        <input type="radio" id="angled" class="angled" name="levelThreeA">
-        <span>Are the needles angled?</span>
-      </label>
-    
-    </form>
+      <!-- Needles-Single-Flat Trees -->
+      <form class="questionForm questionFormTree questionNeedlesSingleFlat">
+      
+        <label for="balsalmFir">
+          <input type="radio" id="balsalmFir" class="balsalmFir" name="needlesSingleFlat">
+          <span>Balsalm Fir</span>
+        </label>
+        <label for="hemlock">
+          <input type="radio" id="hemlock" class="hemlock" name="needlesSingleFlat">
+          <span>Hemlock</span>
+        </label>
+      
+      </form>
 
-    <!-- Needles-Single-Flat Trees -->
-    <form class="questionForm questionFormTree questionNeedlesSingleFlat">
-    
-      <label for="balsalmFir">
-        <input type="radio" id="balsalmFir" class="balsalmFir" name="needlesSingleFlat">
-        <span>Balsalm Fir</span>
-      </label>
-      <label for="hemlock">
-        <input type="radio" id="hemlock" class="hemlock" name="needlesSingleFlat">
-        <span>Hemlock</span>
-      </label>
-    
-    </form>
+      <!-- Needles-Single-Angled Trees  -->
+      <form class="questionForm questionFormTree questionNeedlesSingleAngled">
+      
+        <label for="whiteSpruce">
+          <input type="radio" id="whiteSpruce" class="whiteSpruce" name="needlesSingleAngled">
+          <span>White Spruce</span>
+        </label>
+        <label for="blackSpruce">
+          <input type="radio" id="blackSpruce" class="blackSpruce" name="needlesSingleAngled">
+          <span>Black Spruce</span>
+        </label>
+      
+      </form>
 
-    <!-- Needles-Single-Angled Trees  -->
-    <form class="questionForm questionFormTree questionNeedlesSingleAngled">
-    
-      <label for="whiteSpruce">
-        <input type="radio" id="whiteSpruce" class="whiteSpruce" name="needlesSingleAngled">
-        <span>White Spruce</span>
-      </label>
-      <label for="blackSpruce">
-        <input type="radio" id="blackSpruce" class="blackSpruce" name="needlesSingleAngled">
-        <span>Black Spruce</span>
-      </label>
-    
-    </form>
+      <!-- Needles-Grouped Trees  -->
+      <form class="questionForm questionFormTree questionNeedlesGrouped">
+      
+        <label for="whitePine">
+          <input type="radio" id="whitePine" class="whitePine" name="needlesGrouped">
+          <span>White Pine</span>
+        </label>
+        <label for="redPine">
+          <input type="radio" id="redPine" class="redPine" name="needlesGrouped">
+          <span>Red Pine</span>
+        </label>
+        <label for="jackPine">
+          <input type="radio" id="jackPine" class="jackPine" name="needlesGrouped">
+          <span>Jack Pine</span>
+        </label>
+        <label for="scotsPine">
+          <input type="radio" id="scotsPine" class="scotsPine" name="needlesGrouped">
+          <span>Scot's Pine</span>
+        </label>
+      
+      </form>
 
-    <!-- Needles-Grouped Trees  -->
-    <form class="questionForm questionFormTree questionNeedlesGrouped">
-    
-      <label for="whitePine">
-        <input type="radio" id="whitePine" class="whitePine" name="needlesGrouped">
-        <span>White Pine</span>
-      </label>
-      <label for="redPine">
-        <input type="radio" id="redPine" class="redPine" name="needlesGrouped">
-        <span>Red Pine</span>
-      </label>
-      <label for="jackPine">
-        <input type="radio" id="jackPine" class="jackPine" name="needlesGrouped">
-        <span>Jack Pine</span>
-      </label>
-      <label for="scotchPine">
-        <input type="radio" id="scotchPine" class="scotchPine" name="needlesGrouped">
-        <span>Scotch Pine</span>
-      </label>
-    
-    </form>
+      <form class="questionForm questionFormTree questionNeedlesClustered">
+      
+        <label for="larch">
+          <input type="radio" id="larch" class="larch" name="needlesClustered">
+          <span>Larch</span>
+        </label>
+      
+      </form>
 
-    <form class="questionForm questionFormTree questionNeedlesClustered">
-    
-      <label for="larch">
-        <input type="radio" id="larch" class="larch" name="needlesClustered">
-        <span>Larch</span>
-      </label>
-    
-    </form>
-
-    <!-- Rounded  -->
-    <form class="questionForm questionFormTree questionRounded">
-    
-      <label for="easternWhiteCedar">
-        <input type="radio" id="easternWhiteCedar" class="easternWhiteCedar" name="rounded">
-        <span>Eastern White Cedar</span>
-      </label>
-      <label for="easternRedCedar">
-        <input type="radio" id="easternRedCedar" class="easternRedCedar" name="rounded">
-        <span>Eastern Red Cedar (Juniper)</span>
-      </label>
-    
-    </form>
+      <!-- Rounded  -->
+      <form class="questionForm questionFormTree questionRounded">
+      
+        <label for="easternWhiteCedar">
+          <input type="radio" id="easternWhiteCedar" class="easternWhiteCedar" name="rounded">
+          <span>Eastern White Cedar</span>
+        </label>
+        <label for="easternRedCedar">
+          <input type="radio" id="easternRedCedar" class="easternRedCedar" name="rounded">
+          <span>Eastern Red Cedar (Juniper)</span>
+        </label>
+      
+      </form>
 
 
 
-    <!-- Tree Page  -->
-    <article class="treeSlide">
-      <h2 class="treeName"></h2>
-      <p class="treeDesc"></p>
-    </article>
+      <!-- Tree Page  -->
+      <article class="treeSlide ">
+        <div class="treeSlideLeft">
+          <h2 class="treeName"></h2>
+          <div class="treeImgContainer">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="treeSlideRight">
+          <p class="treeDesc"></p>
+        </div>
+      </article>
 
-    <!-- Button Navigation  -->
-    <nav class="btnNav">
-      <button type="submit" class="previousBtn">Previous</button>
-      <button type="submit" class="nextBtn">Next</button>
-    </nav>
+    </div> <!--wrapper ends-->
 
+      <!-- Button Navigation  -->
+      <div class="wrapper btnWrapper">
+        <nav class="btnNav">
+          <button type="submit" class="previousBtn">Previous</button>
+          <button type="submit" class="nextBtn">Next</button>
+        </nav>
+      </div>
+
+    
   </section>
+
 
 
 

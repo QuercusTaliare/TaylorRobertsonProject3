@@ -1,10 +1,13 @@
-    // font-family: 'Noto Sans', sans-serif;
-
-    // font-family: 'Noto Serif', serif;
-
-
 $timberwolf: #DADDD8;
 $pistachio: #95BF74;
 $russianGreen: #659B5E;
 $fernGreen: #556F44;
 $darkSlateGrey: #283F3B;
+
+@mixin serifFont {
+    font-family: 'Noto Serif', serif;
+}
+
+@mixin sansSerifFont {
+    font-family: 'Noto Sans', sans-serif;
+}

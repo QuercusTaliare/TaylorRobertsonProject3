@@ -11,7 +11,7 @@ app.trees = {
     name: "Balsalm Fir",
     desc: "balsalm paragraph",
     image: {
-      path: "../assets/balsalmFir-RobRoutledge.jpg",
+      path: "./assets/balsalmFir-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
     }
   },
@@ -19,7 +19,7 @@ app.trees = {
     name: "Hemlock",
     desc: "hemlock paragraph",
     image: {
-      path: "../assets/hemlock-RobRoutledge.jpg",
+      path: "./assets/hemlock-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
     }
   }, 
@@ -27,7 +27,7 @@ app.trees = {
     name: "White Spruce",
     desc: "white spruce paragraph",
     image: {
-      path: "../assets/whiteSpruce-paulWray.jpg",
+      path: "./assets/whiteSpruce-paulWray.jpg",
       photographer: "Paul Wray, Iowa State University, Bugwood.org"
     }
   },
@@ -35,7 +35,7 @@ app.trees = {
     name: "Black Spruce",
     desc: "black spruce paragraph",
     image: {
-      path: "../assets/blackSpruce-RobRoutledge.jpg",
+      path: "./assets/blackSpruce-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
     }
   },
@@ -43,7 +43,7 @@ app.trees = {
     name: "White Pine",
     desc: "white pine",
     image: {
-      path: "../assets/whitePine - Richard Webb.jpg",
+      path: "./assets/whitePine - Richard Webb.jpg",
       photographer: "Richard Webb, Bugwood.org"
     }
   },
@@ -51,7 +51,7 @@ app.trees = {
     name: "Red Pine",
     desc: "red pine",
     image: {
-      path: "../assets/redPine-JosephObrien.jpg",
+      path: "./assets/redPine-JosephObrien.jpg",
       photographer: "Joseph OBrien, USDA Forest Service, Bugwood.org"
     }
   }, 
@@ -59,15 +59,15 @@ app.trees = {
     name: "Jack Pine",
     desc: "jack pine",
     image: {
-      path: "../assets/jackPine-RobRoutledge.jpg",
+      path: "./assets/jackPine-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
     }
   },
-  scotchPine: {
-    name: "Scotch Pine",
-    desc: "scotch pine",
+  scotsPine: {
+    name: "Scot's Pine",
+    desc: "scot's pine",
     image: {
-      path: "../assets/scotsPine-tDavisSydnor.jpg",
+      path: "./assets/scotsPine-tDavisSydnor.jpg",
       photographer: "T. Davis Sydnor, The Ohio State University, Bugwood.org"
     }
   },
@@ -75,7 +75,7 @@ app.trees = {
     name: "Larch",
     desc: "larch",
     image: {
-      path: "../assets/larch-robRoutledge.jpg",
+      path: "./assets/larch-robRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
     }
   },
@@ -83,7 +83,7 @@ app.trees = {
     name: "Eastern White Cedar",
     desc: "eastern white cedar",
     image: {
-      path: "../assets/easternWhiteCedar-ForestAndKimStarr.jpg",
+      path: "./assets/easternWhiteCedar-ForestAndKimStarr.jpg",
       photographer: "Forest and Kim Starr, Starr Environmental, Bugwood.org"
     }
   },
@@ -91,7 +91,7 @@ app.trees = {
     name: "Eastern Red Cedar",
     desc: "eastern red cedar",
     image: {
-      path: "../assets/easternRedCedar-ChrisEvans.jpg",
+      path: "./assets/easternRedCedar-ChrisEvans.jpg",
       photographer: "Chris Evans, University of Illinois, Bugwood.org"
     }
   }
@@ -183,11 +183,15 @@ app.handleNext = function () {
     app.$treeSlide.toggleClass('active');
 
     const treeName = app.trees[choice].name;
+    const treeImage = app.trees[choice].image.path;
+    console.log(treeImage);
     const treeDesc = app.trees[choice].desc;
 
     // console.log(treeName);
 
     app.$treeSlide.find('h2')[0].innerHTML = treeName;
+    app.$treeSlide.find('img').attr('src', treeImage);
+    console.log(app.$treeSlide.find('img'[0]))
     app.$treeSlide.find('p')[0].innerHTML = treeDesc;
   }
 
