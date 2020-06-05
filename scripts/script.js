@@ -201,8 +201,7 @@ app.handleNext = function () {
     // Place variables into DOM
     app.$treeSlide.find('h2').text(treeName);
     app.$treeSlide.find('.treeLatin').text(treeLatin);
-    app.$treeSlide.find('img').attr('src', treeImage);
-    console.log(app.$treeSlide.find('img'[0]))
+    app.$treeSlide.find('img').attr('src', treeImage).attr('alt', `Close-up of ${treeName}'s leaves`);
     app.$treeSlide.find('.treeDesc').text(treeDesc);
   }
 
