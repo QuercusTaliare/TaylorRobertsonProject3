@@ -14,7 +14,6 @@
 .landingContainer h1 {
   text-transform: uppercase;
   letter-spacing: 7px;
-  text-shadow: 0 0 5px $fernGreen;
   color: black;
 }
 
@@ -36,16 +35,10 @@
 }
 
 .questionForm {
-  height: 90%;
+  height: 100%;
   display: none;
 
 }
-
-// .questionFormActive {
-//   display: flex;
-// }
-
-
 
 label {
   flex: 1 1 auto;
@@ -53,7 +46,12 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 50%;
+}
+
+label span {
+  background: lightblue;
+  padding: 20px;
 }
 
 input[type="radio"] {
@@ -62,27 +60,27 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ span {
   color: red;
-  // text-shadow: 0 0 5px black;
 }
 
 .treeSlide {
-  height: 90%;
+  min-height: 100%;
+  max-height: auto;
   display: none;
 }
 
-// .treeSlideActive {
-//   display: flex;
-// }
-
 .active {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
+
 
 .treeSlide.active .treeSlideLeft,
 .treeSlide.active .treeSlideRight {
   flex: 1 1 auto;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -93,15 +91,32 @@ input[type="radio"]:checked ~ span {
   flex-direction: column;
 }
 
+.treeName {
+  margin: 0 0 10px 0;
+}
+
+.treeLatin {
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.treeDesc {
+  max-width: 250px;
+  margin: 20px 0 0 0;
+  letter-spacing: -1px;
+  line-height: 1.3;
+}
+
 .treeImgContainer {
-  height: 300px;
+  // height: 300px;
   // overflow: hidden;
 }
 
 .treeSlide img {
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .btnNav {

@@ -9,7 +9,8 @@ let currentPage = "";
 app.trees = {
   balsalmFir: {
     name: "Balsalm Fir",
-    desc: "balsalm paragraph",
+    latin: "Abies balsamea",
+    desc: "evergreen, needle-like leaves have their bases twisted and appear opposite, 1-2.5cm long, 1.5-2mm wide, flattened, dark-green above, 2 white bands on the underside",
     image: {
       path: "./assets/balsalmFir-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
@@ -17,7 +18,8 @@ app.trees = {
   },
   hemlock: {
     name: "Hemlock",
-    desc: "hemlock paragraph",
+    latin: "Tsuga canadensis",
+    desc: "evergreen, needle-like leaves, the bases twisted and appearing opposite, 1-2cm long, flattened, blunt-tipped, dark yellowish green above, pale below with 2 white stripes",
     image: {
       path: "./assets/hemlock-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
@@ -25,7 +27,8 @@ app.trees = {
   }, 
   whiteSpruce: {
     name: "White Spruce",
-    desc: "white spruce paragraph",
+    latin: "Picea glauca",
+    desc: "evergreen, needle-like leaves, 4-sided, 1-2.5cm long, bluish green, sharp-pointed, retained on branches for several years",
     image: {
       path: "./assets/whiteSpruce-paulWray.jpg",
       photographer: "Paul Wray, Iowa State University, Bugwood.org"
@@ -33,7 +36,8 @@ app.trees = {
   },
   blackSpruce: {
     name: "Black Spruce",
-    desc: "black spruce paragraph",
+    latin: "Picea mariana",
+    desc: "evergreen, needle-like leaves, 4-sided, 0.6-1.5cm long, pale bluish green, blunt-tipped",
     image: {
       path: "./assets/blackSpruce-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
@@ -41,7 +45,8 @@ app.trees = {
   },
   whitePine: {
     name: "White Pine",
-    desc: "white pine",
+    latin: "Pinus strobus",
+    desc: "evergreen, needle-like leaves, 5-15cm long, 0.7-1mm wide, in groups of 5, bluish green, soft, flexible, slightly twisted",
     image: {
       path: "./assets/whitePine - Richard Webb.jpg",
       photographer: "Richard Webb, Bugwood.org"
@@ -49,7 +54,8 @@ app.trees = {
   },
   redPine: {
     name: "Red Pine",
-    desc: "red pine",
+    latin: "Pinus resinosa",
+    desc: "evergreen, needle-like leaves, 10-16cm long, in pairs, dark yellowish green, often clustered near branch tips",
     image: {
       path: "./assets/redPine-JosephObrien.jpg",
       photographer: "Joseph OBrien, USDA Forest Service, Bugwood.org"
@@ -57,7 +63,8 @@ app.trees = {
   }, 
   jackPine: {
     name: "Jack Pine",
-    desc: "jack pine",
+    latin: "Pinus banksiana",
+    desc: "evergreen, needle-like leaves, grouped in pairs, twisted, spreading, 2-5cm long, 1-2mm wide, yellowish green",
     image: {
       path: "./assets/jackPine-RobRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
@@ -65,7 +72,8 @@ app.trees = {
   },
   scotsPine: {
     name: "Scot's Pine",
-    desc: "scot's pine",
+    latin: "Pinus sylvetris",
+    desc: "evergreen, needle-like leaves, 3.5-8cm long, 1-2mm wide, grouped in pairs, bluish green, twisted, sharp-pointed",
     image: {
       path: "./assets/scotsPine-tDavisSydnor.jpg",
       photographer: "T. Davis Sydnor, The Ohio State University, Bugwood.org"
@@ -73,7 +81,8 @@ app.trees = {
   },
   larch: {
     name: "Larch",
-    desc: "larch",
+    latin: "Larix laricina",
+    desc: "deciduous, needle-like leaves, 3-angled, soft, pale green, 1-2.5mm long, 0.5-0.8mm wide, in clusters of 10-20, turning pale yellow in autumn",
     image: {
       path: "./assets/larch-robRoutledge.jpg",
       photographer: "Rob Routledge, Sault College, Bugwood.org"
@@ -81,7 +90,8 @@ app.trees = {
   },
   easternWhiteCedar: {
     name: "Eastern White Cedar",
-    desc: "eastern white cedar",
+    latin: "Thuja occidentalis",
+    desc: "evergreen, opposite, in 4 rows, dull yellowish green, scale-like, 2-5mm long, overlapping those above; young leaves glandular-dotted",
     image: {
       path: "./assets/easternWhiteCedar-ForestAndKimStarr.jpg",
       photographer: "Forest and Kim Starr, Starr Environmental, Bugwood.org"
@@ -89,7 +99,8 @@ app.trees = {
   },
   easternRedCedar: {
     name: "Eastern Red Cedar",
-    desc: "eastern red cedar",
+    latin: "Juniperus virginiana",
+    desc: "evergreen, opposite, in 4 rows, bluish green; older branches with scale-like leaves 1-3mm long; young branches with sharper leaves 5-7mm long",
     image: {
       path: "./assets/easternRedCedar-ChrisEvans.jpg",
       photographer: "Chris Evans, University of Illinois, Bugwood.org"
@@ -177,29 +188,26 @@ app.handleNext = function () {
     app.$questionRounded.toggleClass('active');
     app.$prevBtn.addClass('activeBtn');
   } else if (currentPage.hasClass('questionFormTree')) {
-
-
     currentPage.toggleClass('active');
     app.$treeSlide.toggleClass('active');
 
+    // Create variables that grab data from tree object
     const treeName = app.trees[choice].name;
+    const treeLatin = app.trees[choice].latin;
     const treeImage = app.trees[choice].image.path;
     console.log(treeImage);
     const treeDesc = app.trees[choice].desc;
 
-    // console.log(treeName);
-
-    app.$treeSlide.find('h2')[0].innerHTML = treeName;
+    // Place variables into DOM
+    app.$treeSlide.find('h2').text(treeName);
+    app.$treeSlide.find('.treeLatin').text(treeLatin);
     app.$treeSlide.find('img').attr('src', treeImage);
     console.log(app.$treeSlide.find('img'[0]))
-    app.$treeSlide.find('p')[0].innerHTML = treeDesc;
+    app.$treeSlide.find('.treeDesc').text(treeDesc);
   }
 
   // This event listener will be re-added after another selection has been made in the selectQuestion method.
   // NOTE: Apply styling so the Next button doesn't look interactive
-  // app.$nextBtn.off('click');
-  // $('button.nextBtn').css('pointer-events', 'none');
-  // app.$nextBtn.css('pointer-events', 'none');
   app.$nextBtn.removeClass('activeBtn');
 
 } // Next button function ENDS
@@ -212,9 +220,6 @@ app.selectQuestion = function(e) {
 
   // app.$nextBtn.css('pointer-events', 'auto');
   app.$nextBtn.addClass('activeBtn');
-
-  // Vanilla JS
-  // choice = e.target.className;
 
   choice = $(this).attr('class');
   currentPage = app.$questions.find('.active');
