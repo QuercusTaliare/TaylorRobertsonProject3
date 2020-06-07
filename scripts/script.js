@@ -3,9 +3,6 @@ const app = {};
 
 // VARIABLES
 
-let choice = "";
-let currentPage = "";
-
 app.trees = {
   balsalmFir: {
     name: "Balsalm Fir",
@@ -163,41 +160,41 @@ app.prevBtn = function() {
 // NEXT BUTTON FUNCTION
 app.handleNext = function () {
 
-  if (choice === "needles") {
+  if (app.choice === "needles") {
     app.$questionFormOne.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
     app.$prevBtn.addClass('activeBtn');
-  } else if (choice === "single") {
+  } else if (app.choice === "single") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormThreeA.toggleClass('active');
-  } else if (choice === "flat") {
+  } else if (app.choice === "flat") {
     app.$questionFormThreeA.toggleClass('active');
     app.$questionNeedlesSingleFlat.toggleClass('active');
-  } else if (choice === "angled") {
+  } else if (app.choice === "angled") {
     app.$questionFormThreeA.toggleClass('active');
     app.$questionNeedlesSingleAngled.toggleClass('active');
-  } else if (choice === "grouped") {
+  } else if (app.choice === "grouped") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionNeedlesGrouped.toggleClass('active');
-  } else if (choice === "clustered") {
+  } else if (app.choice === "clustered") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionNeedlesClustered.toggleClass('active');
-  } else if (choice === "rounded") {
+  } else if (app.choice === "rounded") {
     app.$questionFormOne.toggleClass('active');
     app.$questionRounded.toggleClass('active');
     app.$prevBtn.addClass('activeBtn');
   } 
   // If user about to choose a tree
-  else if (currentPage.hasClass('questionFormTree')) {
-    currentPage.toggleClass('active');
+  else if (app.currentPage.hasClass('questionFormTree')) {
+    app.currentPage.toggleClass('active');
     app.$treeSlide.toggleClass('active');
 
     // Creates variables that grab data from tree object
-    const treeName = app.trees[choice].name;
-    const treeLatin = app.trees[choice].latin;
-    const treeImage = app.trees[choice].image.path;
-    const treeImagePhotographer = app.trees[choice].image.photographer;
-    const treeDesc = app.trees[choice].desc;
+    const treeName = app.trees[app.choice].name;
+    const treeLatin = app.trees[app.choice].latin;
+    const treeImage = app.trees[app.choice].image.path;
+    const treeImagePhotographer = app.trees[app.choice].image.photographer;
+    const treeDesc = app.trees[app.choice].desc;
 
     // Places variables into DOM
     app.$treeSlide.find('h2').text(treeName);
@@ -219,8 +216,8 @@ app.selectQuestion = function() {
   // Makes Next Button clickable
   app.$nextBtn.addClass('activeBtn');
 
-  choice = $(this).attr('class');
-  currentPage = app.$questions.find('.active');
+  app.choice = $(this).attr('class');
+  app.currentPage = app.$questions.find('.active');
   
 } // Radio button function ENDS
 

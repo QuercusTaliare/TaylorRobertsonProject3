@@ -10,7 +10,7 @@
   <script src="https://kit.fontawesome.com/1110345c41.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+  <!-- LANDING PAGE -->
   <section class="landing">
     <div class="wrapper landingWrapper">
       <div class="landingContainer">
@@ -20,18 +20,18 @@
           <p>Answer the questions</p> 
           <p>Identify the mysterious conifer Tree</p>
         </div>
+        <!-- Used an anchor (instead of button) to be able to jump to id -->
         <a href="#questions">Begin</a>
       
       </div>
     </div>
   </section>
 
+  <!-- QUESTIONS PAGES-->
   <section id="questions" class="questions">
     
     <div class="wrapper questionsWrapper">
 
-    
-    
       <!-- Needles or Rounded  -->
       <form class="questionForm questionFormOne active">
 
@@ -129,6 +129,7 @@
       
       </form>
 
+      <!-- Needles Clustered -->
       <form class="questionForm questionFormTree questionNeedlesClustered">
       
         <label for="larch">
@@ -152,21 +153,17 @@
       
       </form>
 
-
-
       <!-- Tree Page  -->
       <article class="treeSlide">
         <div class="treeSlideLeft">
           <h2 class="treeName"></h2>
           <p class="treeLatin"></p>
           <p class="treeDesc"></p>
-          <p class="treeDescCredit">*Richard Dickinson & France Royer, <a href="https://www.amazon.ca/Plants-Southern-Ontario-Richard-Dickinson/dp/1551059061">Plants of Southern Ontario</a></p>
+          <p class="treeDescCredit">*Richard Dickinson & France Royer, <a href="https://www.amazon.ca/Plants-Southern-Ontario-Richard-Dickinson/dp/1551059061" target="_blank" title="Amazon page for the book Plants of Southern Ontario">Plants of Southern Ontario</a></p>
         </div>
         <div class="treeSlideRight">
           <figure class="treeFigure">
-            <!-- <div class="treeImgContainer"> -->
-              <img src="" alt="">
-            <!-- </div> -->
+            <img src="" alt="">
             <figcaption class="treeImageCaption">Photo by:</figcaption>
             <figcaption class="treeImageCaption treeImagePhotographer"></figcaption>
           </figure>
@@ -178,20 +175,16 @@
 
     </div> <!--wrapper ends-->
 
-      <!-- Button Navigation  -->
-      <div class="wrapper btnWrapper">
-        <nav class="btnNav">
-          <button type="submit" class="previousBtn">Previous</button>
-          <button type="submit" class="nextBtn">Next</button>
-        </nav>
-      </div>
+    <!-- Button Navigation  -->
+    <div class="wrapper btnWrapper">
+      <nav class="btnNav">
+        <button type="submit" class="previousBtn">Previous</button>
+        <button type="submit" class="nextBtn">Next</button>
+      </nav>
+    </div>
 
     
-  </section>
-
-
-
-
+  </section><!--question page ends-->
 
 
   <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>

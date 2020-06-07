@@ -376,7 +376,7 @@ button {
   display: none;
 }
 
-label {
+.questionForm label {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -392,7 +392,7 @@ label {
   height: 100%;
 }
 
-label span {
+.questionForm label span {
   border: solid 0 #95BF74;
   padding: 20px;
   border-radius: 4px;
