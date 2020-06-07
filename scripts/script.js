@@ -148,6 +148,7 @@ app.prevBtn = function() {
     app.$questionFormOne.toggleClass('active');
     app.$questionFormOne[0].reset();
     app.$prevBtn.removeClass('activeBtn');
+    app.$againBtn.removeClass('activeBtn');
   } else if (currentPage.hasClass("questionFormThreeA") || currentPage.hasClass("questionNeedlesGrouped") || currentPage.hasClass("questionNeedlesClustered")) {
     currentPage.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
