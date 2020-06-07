@@ -112,7 +112,6 @@ app.trees = {
 
 // PREVIOUS BUTTON FUNCTION 
 app.prevBtn = function() {
-  // app.$nextBtn.on('click', app.handleNext);
 
   // Finds the current form displaying, and gets the first input
   const currentPage = app.$questions.find('.active');
@@ -187,44 +186,42 @@ app.handleNext = function () {
     app.$questionFormOne.toggleClass('active');
     app.$questionRounded.toggleClass('active');
     app.$prevBtn.addClass('activeBtn');
-  } else if (currentPage.hasClass('questionFormTree')) {
+  } 
+  // If user about to choose a tree
+  else if (currentPage.hasClass('questionFormTree')) {
     currentPage.toggleClass('active');
     app.$treeSlide.toggleClass('active');
 
-    // Create variables that grab data from tree object
+    // Creates variables that grab data from tree object
     const treeName = app.trees[choice].name;
     const treeLatin = app.trees[choice].latin;
     const treeImage = app.trees[choice].image.path;
-    console.log(treeImage);
+    const treeImagePhotographer = app.trees[choice].image.photographer;
     const treeDesc = app.trees[choice].desc;
 
-    // Place variables into DOM
+    // Places variables into DOM
     app.$treeSlide.find('h2').text(treeName);
     app.$treeSlide.find('.treeLatin').text(treeLatin);
     app.$treeSlide.find('img').attr('src', treeImage).attr('alt', `Close-up of ${treeName}'s leaves`);
-    app.$treeSlide.find('.treeDesc').text(treeDesc);
+    app.$treeSlide.find('.treeImagePhotographer').text(treeImagePhotographer);
+    app.$treeSlide.find('.treeDesc').text(`${treeDesc}*`);
   }
 
-  // This event listener will be re-added after another selection has been made in the selectQuestion method.
-  // NOTE: Apply styling so the Next button doesn't look interactive
+
+  // Makes Next Button unclickable
   app.$nextBtn.removeClass('activeBtn');
 
 } // Next button function ENDS
 
 // RADIO BUTTON SELECT FUNCTION
-app.selectQuestion = function(e) {
-  // When a choice has been selected, this will put an event listener on the next button
-  // NOTE: I should change the styling so it officially looks interactive
+app.selectQuestion = function() {
   
-
-  // app.$nextBtn.css('pointer-events', 'auto');
+  // Makes Next Button clickable
   app.$nextBtn.addClass('activeBtn');
 
   choice = $(this).attr('class');
   currentPage = app.$questions.find('.active');
-  // currentPage = e.target.form;
-
-
+  
 } // Radio button function ENDS
 
 // INIT FUNCTION -------------------------------------

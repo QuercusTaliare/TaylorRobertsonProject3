@@ -1,6 +1,6 @@
 .landing {
   height: 100vh;
-  background: linear-gradient(to bottom, $timberwolf 70%, $russianGreen);
+  background: linear-gradient(to bottom, $neutral 70%, $russianGreen);
 }
 
 .landingContainer {
@@ -32,18 +32,18 @@
   text-transform: uppercase;
 }
 
-a {
+.landing a {
   text-transform: uppercase;
-  background: $pistachio;
+  background: $highlight;
   padding: 10px 30px;
   border-radius: 4px;
   display: inline-block;
   box-shadow: 0 0 5px black;
 }
 
-a:hover {
-  box-shadow: 0 0 5px $timberwolf;
-  color: $timberwolf;
+.landing a:hover {
+  box-shadow: 0 0 5px $neutral;
+  // color: $secondaryHighlight;
 }
 
 // Active State
@@ -54,7 +54,7 @@ a:hover {
 
 .questions {
   height: 100vh;
-  background: linear-gradient(to top, $timberwolf 60%, $russianGreen);
+  background: linear-gradient(to top, $neutral 60%, $russianGreen);
 }
 
 .questionForm {
@@ -80,7 +80,7 @@ label {
 
 label span {
   // background: lightblue;
-  border: solid 0 $pistachio;
+  border: solid 0 $highlight;
   padding: 20px;
   border-radius: 4px;
   transition: all 0.2s ease-in;
@@ -91,13 +91,13 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked ~ span {
-  color: rgb(238, 93, 9);
+  color: $secondaryHighlight;
 }
 
 input[type="radio"]:hover ~ span,
 input[type="radio"]:focus ~ span, {
-  border: solid 1px $pistachio;
-  box-shadow: 0 0 5px $pistachio;
+  border: solid 1px $secondaryHighlight;
+  box-shadow: 0 0 5px $secondaryHighlight;
 }
 
 
@@ -135,6 +135,7 @@ input[type="radio"]:focus ~ span, {
 
 .treeName {
   margin: 0 0 10px 0;
+  text-transform: uppercase;
 }
 
 .treeLatin {
@@ -149,9 +150,25 @@ input[type="radio"]:focus ~ span, {
   line-height: 1.3;
 }
 
-.treeImgContainer {
-  // height: 300px;
-  // overflow: hidden;
+.treeDescCredit a {
+  color: $secondaryHighlight;
+  text-decoration: underline;
+}
+
+.treeDescCredit a:hover,
+.treeDescCredit a:focus {
+  opacity: 0.5;
+}
+
+// .treeImgContainer {
+//   // height: 300px;
+//   // overflow: hidden;
+// }
+
+.treeFigure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .treeSlide img {
@@ -161,6 +178,19 @@ input[type="radio"]:focus ~ span, {
   border-radius: 50%;
 }
 
+.treeSlide .treeDescCredit,
+.treeSlide .treeImageCaption {
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+.treeSlide .treeDescCredit,
+.treeSlide .treeImageCaption:first-of-type {
+  margin: 20px 0 0 0;
+}
+
+
+
 .btnNav {
   display: flex;
   justify-content: space-around;
@@ -169,7 +199,7 @@ input[type="radio"]:focus ~ span, {
 }
 
 button {
-  background: $pistachio;
+  background: $highlight;
   border: none;
   padding: 10px 30px;
   border-radius: 4px;
@@ -179,14 +209,14 @@ button {
 .nextBtn {
   pointer-events: none;
   color: rgba(0,0,0,0.3);
-  background: rgba($pistachio, 0.3);
+  background: rgba($highlight, 0.3);
 }
 
 .nextBtn.activeBtn,
 .previousBtn.activeBtn {
   pointer-events: auto;
   color: black;
-  background: $pistachio;
+  background: $highlight;
 }
 
 
@@ -194,6 +224,6 @@ button {
 .nextBtn.activeBtn:focus,
 .previousBtn.activeBtn:hover,
 .previousBtn.activeBtn:focus {
-  color: $timberwolf;
-  box-shadow: 0 0 7px $fernGreen;
+  box-shadow: 0 0 7px $secondary;
+  cursor: pointer;
 }

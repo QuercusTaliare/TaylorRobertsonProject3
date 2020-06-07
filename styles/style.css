@@ -350,7 +350,7 @@ button {
   text-transform: uppercase;
 }
 
-a {
+.landing a {
   text-transform: uppercase;
   background: #95BF74;
   padding: 10px 30px;
@@ -360,10 +360,9 @@ a {
           box-shadow: 0 0 5px black;
 }
 
-a:hover {
+.landing a:hover {
   -webkit-box-shadow: 0 0 5px #DADDD8;
           box-shadow: 0 0 5px #DADDD8;
-  color: #DADDD8;
 }
 
 .questions {
@@ -411,9 +410,9 @@ input[type="radio"]:checked ~ span {
 
 input[type="radio"]:hover ~ span,
 input[type="radio"]:focus ~ span {
-  border: solid 1px #95BF74;
-  -webkit-box-shadow: 0 0 5px #95BF74;
-          box-shadow: 0 0 5px #95BF74;
+  border: solid 1px #ee5d09;
+  -webkit-box-shadow: 0 0 5px #ee5d09;
+          box-shadow: 0 0 5px #ee5d09;
 }
 
 .treeSlide {
@@ -467,6 +466,7 @@ input[type="radio"]:focus ~ span {
 
 .treeName {
   margin: 0 0 10px 0;
+  text-transform: uppercase;
 }
 
 .treeLatin {
@@ -481,12 +481,46 @@ input[type="radio"]:focus ~ span {
   line-height: 1.3;
 }
 
+.treeDescCredit a {
+  color: #ee5d09;
+  text-decoration: underline;
+}
+
+.treeDescCredit a:hover,
+.treeDescCredit a:focus {
+  opacity: 0.5;
+}
+
+.treeFigure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .treeSlide img {
   width: 300px;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+}
+
+.treeSlide .treeDescCredit,
+.treeSlide .treeImageCaption {
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+.treeSlide .treeDescCredit,
+.treeSlide .treeImageCaption:first-of-type {
+  margin: 20px 0 0 0;
 }
 
 .btnNav {
@@ -526,9 +560,9 @@ button {
 .nextBtn.activeBtn:focus,
 .previousBtn.activeBtn:hover,
 .previousBtn.activeBtn:focus {
-  color: #DADDD8;
   -webkit-box-shadow: 0 0 7px #556F44;
           box-shadow: 0 0 7px #556F44;
+  cursor: pointer;
 }
 
 @media (max-width: 650px) {
