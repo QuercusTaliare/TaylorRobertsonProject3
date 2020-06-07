@@ -74,7 +74,10 @@
   border: solid 0 $highlight;
   padding: 20px;
   border-radius: 4px;
-  transition: all 0.2s ease-in;
+  text-transform: uppercase;
+  transition: border 0.2s ease-in,
+    font-size 0.5s ease-in,
+    padding 0.5s ease-in;
 }
 
 input[type="radio"] {
@@ -83,6 +86,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ span {
   color: $secondaryHighlight;
+  font-size: 2rem;
 }
 
 input[type="radio"]:hover ~ span,
@@ -193,6 +197,7 @@ button {
 }
 
 .previousBtn,
+.againBtn,
 .nextBtn {
   pointer-events: none;
   color: rgba(0,0,0,0.3);
@@ -200,6 +205,7 @@ button {
 }
 
 .nextBtn.activeBtn,
+.againBtn.activeBtn,
 .previousBtn.activeBtn {
   pointer-events: auto;
   color: black;
@@ -209,6 +215,8 @@ button {
 
 .nextBtn.activeBtn:hover,
 .nextBtn.activeBtn:focus,
+.againBtn.activeBtn:hover,
+.againBtn.activeBtn:focus,
 .previousBtn.activeBtn:hover,
 .previousBtn.activeBtn:focus {
   box-shadow: 0 0 7px $secondary;

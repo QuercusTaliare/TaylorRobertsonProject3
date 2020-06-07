@@ -107,6 +107,34 @@ app.trees = {
 
 // FUNCTIONS 
 
+// START AGAIN BUTTON FUNCTION 
+
+app.againBtn = function() {
+
+  // console.log("working");
+
+  const currentPage = app.$questions.find('.active');
+
+  
+
+  if (!currentPage.hasClass("questionFormOne")) {
+    console.log(currentPage);
+    
+    currentPage.toggleClass('active');
+    app.$questionFormOne.toggleClass('active');
+    
+    app.$questionFormOne[0].reset();
+    app.$againBtn.removeClass('activeBtn');
+    app.$prevBtn.removeClass('activeBtn');
+    app.$nextBtn.removeClass('activeBtn');
+
+    if(!currentPage.hasClass("treeSlide")) {
+      currentPage[0].reset();
+    }
+  }
+
+}
+
 // PREVIOUS BUTTON FUNCTION 
 app.prevBtn = function() {
 
@@ -160,29 +188,41 @@ app.prevBtn = function() {
 // NEXT BUTTON FUNCTION
 app.handleNext = function () {
 
+  // Makes Next Button unclickable
+  app.$nextBtn.removeClass('activeBtn');
+
   if (app.choice === "needles") {
     app.$questionFormOne.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
+    app.$questionFormTwoA[0].reset();
     app.$prevBtn.addClass('activeBtn');
+    app.$againBtn.addClass('activeBtn');
   } else if (app.choice === "single") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormThreeA.toggleClass('active');
+    app.$questionFormThreeA[0].reset();
   } else if (app.choice === "flat") {
     app.$questionFormThreeA.toggleClass('active');
     app.$questionNeedlesSingleFlat.toggleClass('active');
+    app.$questionNeedlesSingleFlat[0].reset();
   } else if (app.choice === "angled") {
     app.$questionFormThreeA.toggleClass('active');
     app.$questionNeedlesSingleAngled.toggleClass('active');
+    app.$questionNeedlesSingleAngled[0].reset();
   } else if (app.choice === "grouped") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionNeedlesGrouped.toggleClass('active');
+    app.$questionNeedlesGrouped[0].reset();
   } else if (app.choice === "clustered") {
     app.$questionFormTwoA.toggleClass('active');
     app.$questionNeedlesClustered.toggleClass('active');
+    app.$questionNeedlesClustered[0].reset();
   } else if (app.choice === "rounded") {
     app.$questionFormOne.toggleClass('active');
     app.$questionRounded.toggleClass('active');
+    app.$questionRounded[0].reset();
     app.$prevBtn.addClass('activeBtn');
+    app.$againBtn.addClass('activeBtn');
   } 
   // If user about to choose a tree
   else if (app.currentPage.hasClass('questionFormTree')) {
@@ -202,11 +242,14 @@ app.handleNext = function () {
     app.$treeSlide.find('img').attr('src', treeImage).attr('alt', `Close-up of ${treeName}'s leaves`);
     app.$treeSlide.find('.treeImagePhotographer').text(treeImagePhotographer);
     app.$treeSlide.find('.treeDesc').text(`${treeDesc}*`);
-  }
 
 
-  // Makes Next Button unclickable
-  app.$nextBtn.removeClass('activeBtn');
+  } 
+  
+  
+
+
+  
 
 } // Next button function ENDS
 
@@ -230,6 +273,7 @@ app.init = function () {
   app.$form = $('.questionForm');
   app.$prevBtn = $('.previousBtn');
   app.$nextBtn = $('.nextBtn');
+  app.$againBtn = $('.againBtn');
   app.$radio = $('input[type="radio"]');
 
   app.$questionFormOne = $('.questionFormOne');
@@ -249,6 +293,7 @@ app.init = function () {
   app.$form.on('click', 'input[type="radio"]', app.selectQuestion);
   app.$prevBtn.on('click', app.prevBtn);
   app.$nextBtn.on('click', app.handleNext);
+  app.$againBtn.on('click', app.againBtn);
 
 };
 
