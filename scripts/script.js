@@ -1,7 +1,9 @@
 // APP NAMESPACE OBJECT
 const app = {};
 
-// VARIABLES
+// DATA
+// https://www.eekwi.org/explore/identification/dichotomous-tree-key
+// This website provided inspiration for my app and gave me a template for my app's tree-identification logic 
 
 app.trees = {
   balsalmFir: {
@@ -105,31 +107,26 @@ app.trees = {
   }
 }
 
-// FUNCTIONS 
+// FUNCTIONS --------------------------------------------------------
 
 // START AGAIN BUTTON FUNCTION 
 
 app.againBtn = function() {
 
-  // console.log("working");
+  app.currentPage = app.$questions.find('.active');
 
-  const currentPage = app.$questions.find('.active');
-
-  
-
-  if (!currentPage.hasClass("questionFormOne")) {
-    console.log(currentPage);
+  if (!app.currentPage.hasClass("questionFormOne")) {
     
-    currentPage.toggleClass('active');
+    app.currentPage.toggleClass('active');
     app.$questionFormOne.toggleClass('active');
-    
     app.$questionFormOne[0].reset();
+
     app.$againBtn.removeClass('activeBtn');
     app.$prevBtn.removeClass('activeBtn');
     app.$nextBtn.removeClass('activeBtn');
 
-    if(!currentPage.hasClass("treeSlide")) {
-      currentPage[0].reset();
+    if(!app.currentPage.hasClass("treeSlide")) {
+      app.currentPage[0].reset();
     }
   }
 
@@ -138,48 +135,45 @@ app.againBtn = function() {
 // PREVIOUS BUTTON FUNCTION 
 app.prevBtn = function() {
 
-  // Finds the current form displaying, and gets the first input
-  const currentPage = app.$questions.find('.active');
+  app.currentPage = app.$questions.find('.active');
   
-  if (currentPage.hasClass("questionFormOne")) {
-    
-  } else if (currentPage.hasClass("questionFormTwoA") || currentPage.hasClass("questionRounded")) {
-    currentPage.toggleClass('active');
+  if (app.currentPage.hasClass("questionFormTwoA") || app.currentPage.hasClass("questionRounded")) {
+    app.currentPage.toggleClass('active');
     app.$questionFormOne.toggleClass('active');
     app.$questionFormOne[0].reset();
     app.$prevBtn.removeClass('activeBtn');
     app.$againBtn.removeClass('activeBtn');
-  } else if (currentPage.hasClass("questionFormThreeA") || currentPage.hasClass("questionNeedlesGrouped") || currentPage.hasClass("questionNeedlesClustered")) {
-    currentPage.toggleClass('active');
+  } else if (app.currentPage.hasClass("questionFormThreeA") || app.currentPage.hasClass("questionNeedlesGrouped") || app.currentPage.hasClass("questionNeedlesClustered")) {
+    app.currentPage.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormTwoA[0].reset();
-  } else if (currentPage.hasClass("questionNeedlesSingleFlat") || currentPage.hasClass("questionNeedlesSingleAngled")) {
-    currentPage.toggleClass('active');
+  } else if (app.currentPage.hasClass("questionNeedlesSingleFlat") || app.currentPage.hasClass("questionNeedlesSingleAngled")) {
+    app.currentPage.toggleClass('active');
     app.$questionFormThreeA.toggleClass('active');
     app.$questionFormThreeA[0].reset();
   } 
-  // IF ON TREE PAGE
-  else if (currentPage.hasClass("treeSlide")) {
-    const currentTree = currentPage.find('h2').text();
+  // ELSE IF ON TREE PAGE
+  else if (app.currentPage.hasClass("treeSlide")) {
+    const currentTree = app.currentPage.find('h2').text();
     
     if (currentTree === "Balsalm Fir" || currentTree === "Hemlock") {
-      currentPage.toggleClass('active');
+      app.currentPage.toggleClass('active');
       app.$questionNeedlesSingleFlat.toggleClass('active');
       app.$questionNeedlesSingleFlat[0].reset();
     } else if (currentTree === "White Spruce"  || currentTree === "Black Spruce") {
-      currentPage.toggleClass('active');
+      app.currentPage.toggleClass('active');
       app.$questionNeedlesSingleAngled.toggleClass('active');
       app.$questionNeedlesSingleAngled[0].reset();
     } else if (currentTree.includes("Pine")) {
-      currentPage.toggleClass('active');
+      app.currentPage.toggleClass('active');
       app.$questionNeedlesGrouped.toggleClass('active');
       app.$questionNeedlesGrouped[0].reset();
     } else if (currentTree === "Larch") {
-      currentPage.toggleClass('active');
+      app.currentPage.toggleClass('active');
       app.$questionNeedlesClustered.toggleClass('active');
       app.$questionNeedlesClustered[0].reset();
     } else if (currentTree === "Eastern Red Cedar" || currentTree === "Eastern White Cedar") {
-      currentPage.toggleClass('active');
+      app.currentPage.toggleClass('active');
       app.$questionRounded.toggleClass('active');
       app.$questionRounded[0].reset();
     }
@@ -189,13 +183,14 @@ app.prevBtn = function() {
 // NEXT BUTTON FUNCTION
 app.handleNext = function () {
 
-  // Makes Next Button unclickable
+  // Makes Next Button unclickable until another input is selected
   app.$nextBtn.removeClass('activeBtn');
 
   if (app.choice === "needles") {
     app.$questionFormOne.toggleClass('active');
     app.$questionFormTwoA.toggleClass('active');
     app.$questionFormTwoA[0].reset();
+    // Makes Previous and Start Again Buttons active
     app.$prevBtn.addClass('activeBtn');
     app.$againBtn.addClass('activeBtn');
   } else if (app.choice === "single") {
@@ -222,10 +217,11 @@ app.handleNext = function () {
     app.$questionFormOne.toggleClass('active');
     app.$questionRounded.toggleClass('active');
     app.$questionRounded[0].reset();
+    // Make Previous and Start Again Buttons active
     app.$prevBtn.addClass('activeBtn');
     app.$againBtn.addClass('activeBtn');
   } 
-  // If user about to choose a tree
+  // ELSE IF USER IS ABOUT TO CHOOSE A TREE
   else if (app.currentPage.hasClass('questionFormTree')) {
     app.currentPage.toggleClass('active');
     app.$treeSlide.toggleClass('active');
@@ -244,14 +240,8 @@ app.handleNext = function () {
     app.$treeSlide.find('.treeImagePhotographer').text(treeImagePhotographer);
     app.$treeSlide.find('.treeDesc').text(`${treeDesc}*`);
 
-
   } 
   
-  
-
-
-  
-
 } // Next button function ENDS
 
 // RADIO BUTTON SELECT FUNCTION
@@ -259,8 +249,9 @@ app.selectQuestion = function() {
   
   // Makes Next Button clickable
   app.$nextBtn.addClass('activeBtn');
-
+  // Gets Class from input choice
   app.choice = $(this).attr('class');
+  // Gets Page with current 'active' class
   app.currentPage = app.$questions.find('.active');
   
 } // Radio button function ENDS

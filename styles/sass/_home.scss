@@ -45,7 +45,6 @@
 
 .landing a:hover {
   box-shadow: 0 0 5px $neutral;
-  // color: $secondaryHighlight;
 }
 
 // -------------- Question Forms
@@ -70,6 +69,10 @@
   height: 100%;
 }
 
+.questions label:hover {
+  cursor: pointer;
+}
+
 .questionForm label span {
   border: solid 0 $highlight;
   padding: 20px;
@@ -88,6 +91,7 @@ input[type="radio"]:checked ~ span {
   color: $secondaryHighlight;
   font-size: 2rem;
 }
+
 
 input[type="radio"]:hover ~ span,
 input[type="radio"]:focus ~ span {

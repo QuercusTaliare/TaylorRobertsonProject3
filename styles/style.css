@@ -392,6 +392,10 @@ button {
   height: 100%;
 }
 
+.questions label:hover {
+  cursor: pointer;
+}
+
 .questionForm label span {
   border: solid 0 #95BF74;
   padding: 20px;
