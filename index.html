@@ -10,23 +10,26 @@
 </head>
 <body>
   <!-- LANDING PAGE -->
-  <section class="landing">
-    <div class="wrapper landingWrapper">
-      <div class="landingContainer">
-
-        <h1>Conifer Detective</h1>
-        <div class="landingText">
-          <p>Answer the questions</p> 
-          <p>Identify the mysterious conifer Tree</p>
+  <header>
+    <section class="landing">
+      <div class="wrapper landingWrapper">
+        <div class="landingContainer">
+          
+          <h1>Conifer Detective</h1>
+          <div class="landingText">
+            <p>Answer the questions</p> 
+            <p>Identify the mysterious conifer Tree</p>
+          </div>
+          <!-- Used an anchor (instead of button) to be able to jump to id -->
+          <a href="#questions">Begin</a>
+          
         </div>
-        <!-- Used an anchor (instead of button) to be able to jump to id -->
-        <a href="#questions">Begin</a>
-      
       </div>
-    </div>
-  </section>
+    </section>
+  </header>
 
   <!-- QUESTIONS PAGES-->
+  <main>
   <section id="questions" class="questions">
     
     <div class="wrapper questionsWrapper">
@@ -185,7 +188,7 @@
 
     
   </section><!--question page ends-->
-
+  </main>
 
   <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
   <script src="scripts/script.js"></script>
